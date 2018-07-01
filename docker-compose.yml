@@ -1,3 +1,5 @@
+
+
 # ---------------------------------------------------------------------------
 # DOCKER COMPOSE FILE FOR THE FULL ATLASSIAN STACK
 # ---------------------------------------------------------------------------
@@ -47,7 +49,7 @@ services:
   jira:
     image: cptactionhank/atlassian-jira-software:7.2.2
     ports:
-      - 8080:8080
+      - 8081:8080
     volumes:
       - /var/atlassian/jira
       - /opt/atlassian/jira/logs
@@ -63,9 +65,9 @@ services:
   # Confluence
   # ---------------------------------------------------------------------------
   confluence:
-    image: cptactionhank/atlassian-confluence:5.10.8
+    image: atlassian/confluence-server:6.10
     ports:
-      - 8090:8090
+      - 8091:8090
     volumes:
       - /var/atlassian/confluence
       - /opt/atlassian/confluence/logs
@@ -81,10 +83,10 @@ services:
   # Bitbucket
   # ---------------------------------------------------------------------------
   bitbucket:
-    image: cptactionhank/atlassian-bitbucket:4.10.0
+    image: atlassian/bitbucket-server:5.11.1
     ports:
-      - 7990:7990
-      - 7999:7999
+      - 7991:7990
+      - 7998:7999
     volumes:
       - /var/atlassian/bitbucket
       - /opt/atlassian/bitbucket/logs
@@ -100,10 +102,10 @@ services:
   # Bamboo
   # ---------------------------------------------------------------------------
   bamboo:
-    image: cptactionhank/atlassian-bamboo:5.13.2
+    image: atlassian/atlassian-bamboo:6.4
     ports:
-      - 8085:8085
-      - 54663:54663
+      - 8086:8085
+      - 54664:54663
     links:
       - postgres
     environment:
